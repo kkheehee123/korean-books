@@ -73,6 +73,22 @@
           flex-wrap:wrap; gap:6px 14px; align-items:center; }
   .acct a { color:var(--accent); font-weight:600; text-decoration:none; }
   .acct a:hover { text-decoration:underline; }
+  .req { margin-top:10px; max-width:720px; background:var(--card);
+         border:1px solid var(--line); border-radius:10px; padding:0 14px;
+         font-size:13.5px; }
+  .req summary { cursor:pointer; padding:10px 0; font-weight:600; color:var(--accent); }
+  .req ol { margin:0 0 12px; padding-left:20px; line-height:1.6; }
+  .req li { margin-bottom:6px; }
+  .req a, .empty a { color:var(--accent); font-weight:600; }
+  .req-find { display:flex; gap:6px; margin-top:6px; }
+  .req-find input { flex:1; min-width:0; padding:8px 10px; border:1px solid var(--line);
+                    border-radius:8px; font-size:14px; background:var(--bg); color:var(--ink); }
+  .req-find button { padding:8px 12px; border:0; border-radius:8px; background:var(--accent);
+                     color:#fff; font-weight:600; font-size:14px; cursor:pointer; }
+  .empty { margin:0 32px 24px; padding:16px; background:var(--card);
+           border:1px dashed var(--line); border-radius:12px; font-size:14px;
+           line-height:1.7; }
+  .empty a { margin-right:14px; display:inline-block; }
 
   /* phones */
   @media (max-width:600px) {
@@ -96,18 +112,40 @@
     .cover { width:72px; min-width:72px; height:104px; }
     .kr { font-size:15px; }
     .links a { display:inline-block; padding:6px 0; margin-right:16px; }
+    .req { font-size:14px; }
+    .req-find input, .req-find button { font-size:16px; padding:10px; }
+    .empty { margin:0 12px 20px; }
+    .empty a { padding:6px 0; }
   }
 </style>
 </head>
 <body>
 <header>
   <h1>Korean Books at Fairfax County Public Library</h1>
-  <div class="meta">Search: <b>all Korean books, newest first (from cache)</b> · 4114 books shown (of 4114 in catalog) · generated 2026-09-12 20:59</div>
+  <div class="meta">Search: <b>all Korean books, newest first (from cache)</b> · 4114 books shown (of 4114 in catalog) · generated 2026-09-12 21:11</div>
   <div class="acct"><span class="acct-label">도서관 계정 Library account:</span>
     <a href="https://fcplcat.fairfaxcounty.gov/logon.aspx?ctx=1.1033.0.0.1" target="_blank" rel="noopener">로그인 Log in</a>
     <a href="https://fcplcat.fairfaxcounty.gov/patronaccount/requests.aspx?ctx=1.1033.0.0.1" target="_blank" rel="noopener">예약 My holds</a>
     <a href="https://fcplcat.fairfaxcounty.gov/patronaccount/itemsout.aspx?ctx=1.1033.0.0.1" target="_blank" rel="noopener">대출 중 Checked out</a>
+    <a href="https://research.fairfaxcounty.gov/find-your-next-book/suggest-a-title" target="_blank" rel="noopener">도서 신청 Suggest a title</a>
   </div>
+  <details class="req">
+    <summary>도서관에 없는 책 신청하기 · Request a book</summary>
+    <ol>
+      <li>먼저 아래 검색창에서 찾아보세요. <i>Search this page first.</i></li>
+      <li>알라딘에서 정확한 제목·저자·출판사·ISBN을 확인하세요.
+        <form class="req-find" id="reqFind">
+          <input id="reqQ" type="search" placeholder="책 제목 또는 저자 Title or author">
+          <button type="submit">알라딘 검색</button>
+        </form></li>
+      <li><a href="https://research.fairfaxcounty.gov/find-your-next-book/suggest-a-title" target="_blank" rel="noopener">도서 구입 신청 Suggest a Title</a>
+        양식에 입력하고 <b>Korean-language book</b>이라고 적어 주세요.
+        도서관 카드가 필요하고, 1주일에 7권까지 신청할 수 있어요.</li>
+      <li>출간된 지 1년이 넘은 책은
+        <a href="https://www.fairfaxcounty.gov/library/interlibrary-loans" target="_blank" rel="noopener">상호대차 Interlibrary Loan</a>으로
+        다른 도서관에서 빌릴 수도 있어요.</li>
+    </ol>
+  </details>
 </header>
 <div class="nojs" id="nojs">
   <b>This preview can't run the page.</b> Filters, paging and links only work in
@@ -4259,6 +4297,11 @@
 <div class="card nomatch" data-pos="4112" data-year="" data-aud="adult" data-sur="" data-search="korean quarterly. ko newspaper"><div class="cover">no cover</div><div style="min-width:0"><div class="kr">Korean quarterly. <span class="badge">한글 제목 못 찾음</span></div><div class="info"><br><b>KO NEWSPAPER</b></div><div class="links"><a href="https://fcplcat.fairfaxcounty.gov/search/title.aspx?ctx=1.1033.0.0.1&amp;pos=1&amp;cn=80016" target="_blank" rel="noopener noreferrer">Library record / hold</a></div></div></div>
 <div class="card nomatch" data-pos="4113" data-year="20uu" data-aud="adult" data-sur="" data-search="washington joong ang ilbo eobsolog. ko 384.6058 washing 20uu"><div class="cover">no cover</div><div style="min-width:0"><div class="kr">Washington Joong Ang ilbo eobsolog. <span class="badge">한글 제목 못 찾음</span></div><div class="info"><br>20uu · <b>KO 384.6058 Washing</b></div><div class="links"><a href="https://fcplcat.fairfaxcounty.gov/search/title.aspx?ctx=1.1033.0.0.1&amp;pos=1&amp;cn=88024" target="_blank" rel="noopener noreferrer">Library record / hold</a></div></div></div>
 </div>
+<div class="empty" id="empty" hidden>
+  찾는 책이 없나요? <i>Not at the library?</i><br>
+  <a href="https://research.fairfaxcounty.gov/find-your-next-book/suggest-a-title" target="_blank" rel="noopener">도서 구입 신청 Suggest a Title</a>
+  <a id="emptyAladin" href="#" target="_blank" rel="noopener">알라딘에서 찾기 Search Aladin</a>
+</div>
 <div class="pager pager--bottom">
   <button class="js-prev">&laquo; Prev</button>
   <button class="js-next">Next &raquo;</button>
@@ -4323,6 +4366,12 @@ function render() {
   if (MATCHED.length !== CARDS.length && MATCHED.length)
     info += '  (filtered from ' + CARDS.length + ')';
   setAll('.js-count', function(el) { el.textContent = info; });
+
+  // nothing matched: offer to request the book, searching Aladin for the typed text
+  document.getElementById('empty').hidden = MATCHED.length !== 0;
+  var q = document.getElementById('q').value.trim(), ala = document.getElementById('emptyAladin');
+  ala.hidden = !q;
+  if (q) ala.href = ALADIN + encodeURIComponent(q);
 }
 
 function runFilter() { computeMatches(); page = 1; render(); }
@@ -4364,6 +4413,13 @@ document.getElementById('q').addEventListener('input', applyFilter);
 });
 document.getElementById('sort').addEventListener('change', applySort);
 document.getElementById('per').addEventListener('change', setPer);
+
+var ALADIN = 'https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=Book&SearchWord=';
+document.getElementById('reqFind').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var q = document.getElementById('reqQ').value.trim();
+  if (q) window.open(ALADIN + encodeURIComponent(q), '_blank', 'noopener');
+});
 setAll('.js-prev', function(el) {
   el.addEventListener('click', function() { goPage(-1); });
 });
