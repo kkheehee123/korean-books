@@ -1,9 +1,10 @@
 {
   "name": "Korean Books at FCPL",
   "short_name": "한국 책",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#f6f4ef",
   "theme_color": "#0f6b5c",
   "icons": [
